@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-gray-300">
+    <table class="w-full shadow-md rounded-lg overflow-hidden border border-collapse">
+        <%-include('partials/header.ejs')%>
+            <tbody>
+                <% paises.forEach(pais => { %>
+                <tr class="hover:bg-gray-50 border">
+                <td class="p-2"><%= pais.name?.nativeName?.spa?.official || pais.name.official %></td>
+                <td class="p-2"><%= pais.capital %></td>
+                <td class="p-2"><%= pais.borders %></td>
+                <td class="p-2"><%= pais.area %></td>
+                <td class="p-2"><%= pais.population %></td>
+                <td class="p-2"><%= pais.region %></td>
+                <td class="p-2"><%= pais.subregion %></td>
+                <td class="p-2"><%= pais.timezones.join(", ") %></td>
+                <td class="p-2 "><img src="<%= pais.flags.png %>" alt="pais.name.common" class="h-8"></td>
+                <td class="p-2"><a href="<%= pais.maps.googleMaps%>">mapa</a></td>
+                <td class="p-2"><%= pais.creador %></td>
+                <td class="p-2"><a href="/api/pais/<%= pais.name.official %>/editar"><button class="cursor-pointer bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Editar</button></a></td>
+                <td class="p-2" ><button  class="cursor-pointer bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" onclick="eliminarPais('<%= pais.name.official %>')">Eliminar</button></td>
+            </tr>
+        <% }) %>
+        </tbody>
+    </table>
+    <script>
+function eliminarPais(nombreOficial) {
+    fetch(`/api/pais/${(nombreOficial)}`, {
+        method: 'DELETE'
+    })
+    .then(res => {
+        if (res.ok) {
+            alert('País eliminado correctamente');
+            location.reload();
+        } else {
+            return res.json().then(data => {
+                throw new Error(data.mensaje || 'Error al eliminar');
+            });
+        }
+    })
+    .catch(err => alert(err.message));
+}
+</script>
+
+</body>
+</html>
