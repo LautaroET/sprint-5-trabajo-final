@@ -1,5 +1,7 @@
 import express from 'express';
 import { eliminarPaisPorNombreController,dashboardController,homeController ,mostrarFormularioNuevoPais,crearPaisController,mostrarFormularioEditarPais,actualizarPaisController} from '../controllers/paisControllers.mjs';
+import{nuevoPaisValidationRules} from '../validation/validationRule.mjs'
+import{handleValidationErrors} from '../validation/errorMiddlaware.mjs'
 
 
 const router = express.Router();
@@ -9,11 +11,11 @@ router.get('/dashboard', dashboardController);
 
 router.get('/pais/nuevo', mostrarFormularioNuevoPais);
 
-router.post('/pais',crearPaisController);
+router.post('/pais', nuevoPaisValidationRules(),handleValidationErrors(), crearPaisController);
 
 router.get('/pais/:nombreOficial/editar', mostrarFormularioEditarPais);
 
-router.put('/pais/:nombreOficial', actualizarPaisController);
+router.put('/pais/:nombreOficial', nuevoPaisValidationRules(),handleValidationErrors(), actualizarPaisController);
 
 router.delete('/pais/:nombreOficial', eliminarPaisPorNombreController);
 
