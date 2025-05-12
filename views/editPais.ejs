@@ -8,43 +8,43 @@
 <body class="bg-gray-300">
   <h1 class="text-4xl text-center py-4">Editar Pais</h1>
 
-  <form class="block w-96 mx-auto p-6 border rounded-md shadow-md" id="editarFormulario" >
-    <label class="p-4" for="name.common">Nombre País Común:</label>
-        <input class="border bg-white field-sizing-content min-w-40" type="text" name="name.common" value="<%= pais.name.common %>" minlength="3" maxlength="90" required><br><br>
+  <form class="bblock w-300 mx-auto p-6 border border rounded-md shadow-md" id="editarFormulario" >
+    <label class="p-4 text-3xl" for="name.common">Nombre País Común:</label>
+<input class="border bg-white field-sizing-content min-w-40" type="text" name="name.common" value="<%= pais.name.common %>" minlength="3" maxlength="90" required><br><br>
 
-        <label class="p-4" for="name.official">Nombre País Oficial:</label>
-        <input class="border bg-white field-sizing-content min-w-40" type="text" name="name.official" value="<%= pais.name.official %>" minlength="3" maxlength="90" required><br><br>
+<label class="p-4 text-3xl" for="name.official">Nombre País Oficial:</label>
+<input class="border bg-white field-sizing-content min-w-40" type="text" name="name.official" value="<%= pais.name.official %>" minlength="3" maxlength="90" required><br><br>
 
-        <label class="p-4" for="name.nativeName.spa.official">Nombre País Oficial (Español):</label>
-        <input class="border bg-white field-sizing-content min-w-40" type="text" name="name.nativeName.spa.official" value="<%= pais.name.nativeName.spa.official %>" minlength="3" maxlength="90" required><br><br>
+<label class="p-4 text-3xl" for="name.nativeName.spa.official">Nombre País Oficial (Español):</label>
+<input class="border bg-white field-sizing-content min-w-40" type="text" name="name.nativeName.spa.official" value="<%= pais.name.nativeName.spa.official %>" minlength="3" maxlength="90" required><br><br>
 
-        <label class="p-4" for="capital">Capital(es):</label><br>
-        <input class="border bg-white field-sizing-content min-w-40" type="text" name="capital" value="<%= pais.capital %>"><br><br>
+<label class="p-4 text-3xl" for="capital">Capital(es):</label><br>
+<input class="border bg-white field-sizing-content min-w-40" type="text" name="capital" value="<%= pais.capital %>"><br><br>
 
-        <label class="p-4" for="borders">Fronteras (separadas por coma):</label>
-        <input class="border bg-white field-sizing-content min-w-40" type="text" name="borders" value="<%= pais.borders %>"><br><br>
+<label class="p-4 text-3xl" for="borders">Fronteras (separadas por coma):</label>
+<input class="border bg-white field-sizing-content min-w-40" type="text" name="borders" value="<%= pais.borders %>"><br><br>
 
-        <label class="p-4" for="area">Área (km²):</label>
-        <input class="border bg-white field-sizing-content min-w-40" type="number" name="area" value="<%= pais.area %>" min="0"><br><br>
+<label class="p-4 text-3xl" for="area">Área (km²):</label>
+<input class="border bg-white field-sizing-content min-w-40" type="number" name="area" value="<%= pais.area %>" min="0"><br><br>
 
-        <label class="p-4" for="population">Población:</label>
-        <input class="border bg-white field-sizing-content min-w-40" type="number" name="population" value="<%= pais.population %>" min="0"><br><br>
+<label class="p-4 text-3xl" for="population">Población:</label>
+<input class="border bg-white field-sizing-content min-w-40" type="number" name="population" value="<%= pais.population %>" min="0"><br><br>
 
-        <label class="p-4" for="region">Región:</label>
-        <input class="border bg-white field-sizing-content min-w-40" type="text" name="region" value="<%= pais.region %>"><br><br>
+<label class="p-4 text-3xl" for="region">Región:</label>
+<input class="border bg-white field-sizing-content min-w-40" type="text" name="region" value="<%= pais.region %>"><br><br>
 
-        <label class="p-4" for="subregion">Sub Región:</label>
-        <input class="border bg-white field-sizing-content min-w-40" type="text" name="subregion" value="<%= pais.subregion %>"><br><br>
+<label class="p-4 text-3xl" for="subregion">Sub Región:</label>
+<input class="border bg-white field-sizing-content min-w-40" type="text" name="subregion" value="<%= pais.subregion %>"><br><br>
 
-        <label class="p-4" for="timezones">Zona Horaria:</label>
-        <input class="border bg-white field-sizing-content min-w-40" type="text" name="timezones" value="<%= pais.timezones %>"><br><br>
+<label class="p-4 text-3xl" for="timezones">Zona Horaria:</label>
+<input class="border bg-white field-sizing-content min-w-40" type="text" name="timezones" value="<%= pais.timezones %>"><br><br>
 
-        <label class="p-4" for="flags.png">Bandera (URL):</label>
-        <input class="border bg-white field-sizing-content min-w-40" type="url" name="flags.png" value="<%= pais.flags.png %>"><br><br>
+<label class="p-4 text-3xl" for="flags.png">Bandera (URL):</label>
+<input class="border bg-white field-sizing-content min-w-40" type="url" name="flags.png" value="<%= pais.flags.png %>"><br><br>
 
-        <label class="p-4" for="maps.googleMaps">Mapa (URL):</label>
-        <input class="border bg-white field-sizing-content min-w-40" type="url" name="maps.googleMaps" value="<%= pais.maps.googleMaps %>"><br><br>
-    <button class=" cursor-pointer text-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">Guardar Cambios</button>
+<label class="p-4 text-3xl" for="maps.googleMaps">Mapa (URL):</label>
+<input class="border bg-white field-sizing-content min-w-40" type="url" name="maps.googleMaps" value="<%= pais.maps.googleMaps %>"><br><br>
+<button class=" cursor-pointer text-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">Guardar Cambios</button>
   </form>
   <br>
 
