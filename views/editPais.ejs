@@ -49,51 +49,71 @@
   <br>
 
   <script>
+  // Añadimos un escuchador de evento para cuando el formulario sea enviado
   document.getElementById('editarFormulario').addEventListener('submit', async function (e) {
+    // Prevenimos la acción por defecto del formulario (que es recargar la página)
     e.preventDefault();
 
+    // Obtenemos el formulario que ha sido enviado
     const form = e.target;
+
+    // Creamos un FormData para obtener todos los valores del formulario
     const formData = new FormData(form);
+
+    // Creamos un objeto vacío para almacenar los datos del formulario
     const data = {};
 
+    // Convertimos los valores del FormData en un objeto
     formData.forEach((value, key) => {
       data[key] = value;
     });
 
-    // Parsear campos que deben ser arrays
+    // Verificamos y parseamos los campos que deben ser arrays
+    // Si la propiedad 'capital' es una cadena, la convertimos en un array de cadenas
     if (typeof data.capital === 'string') {
       data.capital = data.capital.split(',').map(c => c.trim());
     }
+
+    // Si la propiedad 'borders' es una cadena, la convertimos en un array de cadenas
     if (typeof data.borders === 'string') {
       data.borders = data.borders.split(',').map(f => f.trim());
     }
+
+    // Si la propiedad 'timezones' es una cadena, la convertimos en un array de cadenas
     if (typeof data.timezones === 'string') {
       data.timezones = data.timezones.split(',').map(tz => tz.trim());
     }
 
+    // Obtenemos el nombre oficial del país desde el formulario para construir la URL
     const nombreOficial = encodeURIComponent(formData.get('name.official'));
 
     try {
+      // Enviamos la solicitud PUT al servidor con los datos del formulario
       const response = await fetch(`/api/pais/${nombreOficial}`, {
-        method: 'PUT',
+        method: 'PUT',  // Indicamos que la solicitud es de tipo PUT (para actualización)
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json'  // Indicamos que los datos enviados son en formato JSON
         },
-        body: JSON.stringify(data)
+        body: JSON.stringify(data)  // Convertimos el objeto data a una cadena JSON para enviarlo
       });
 
+      // Si la respuesta del servidor es exitosa (status 200)
       if (response.ok) {
+        // Redirigimos al dashboard después de la actualización
         window.location.href = '/api/dashboard';
       } else {
+        // Si hubo un error, mostramos el mensaje de error al usuario
         const error = await response.json();
         alert('Error al actualizar: ' + error.mensaje);
       }
     } catch (err) {
+      // En caso de error en la conexión con el servidor, mostramos el mensaje de error
       console.error(err);
       alert('Error al conectar con el servidor');
     }
   });
 </script>
+
 
 </body>
 </html>

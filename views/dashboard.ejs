@@ -30,22 +30,42 @@
         </tbody>
     </table>
     <script>
+/**
+ * Elimina un país del sistema, confirmando la acción con el usuario y enviando una solicitud DELETE al servidor.
+ * 
+ * @param {string} nombreOficial - El nombre oficial del país que se desea eliminar.
+ */
 function eliminarPais(nombreOficial) {
-    fetch(`/api/pais/${(nombreOficial)}`, {
-        method: 'DELETE'
-    })
-    .then(res => {
-        if (res.ok) {
-            alert('País eliminado correctamente');
-            location.reload();
-        } else {
-            return res.json().then(data => {
-                throw new Error(data.mensaje || 'Error al eliminar');
-            });
-        }
-    })
-    .catch(err => alert(err.message));
+    // Se muestra una ventana de confirmación al usuario para asegurar que desea eliminar el país
+    if (confirm('¿Está seguro de que desea eliminar este país?')) {
+        
+        // Se realiza la solicitud DELETE al servidor para eliminar el país indicado
+        fetch(`/api/pais/${nombreOficial}`, {
+            method: 'DELETE' // Especificamos que la solicitud es de tipo DELETE
+        })
+        .then(res => {
+            // Si la respuesta del servidor es exitosa (código 2xx), se muestra un mensaje de éxito
+            if (res.ok) {
+                alert('País eliminado correctamente');
+                location.reload(); // Recarga la página para reflejar los cambios realizados
+            } else {
+                // Si la respuesta no es exitosa, se extrae el mensaje de error del cuerpo de la respuesta
+                return res.json().then(data => {
+                    // Lanza un error con el mensaje proporcionado por el servidor o un mensaje por defecto
+                    throw new Error(data.mensaje || 'Error al eliminar');
+                });
+            }
+        })
+        .catch(err => {
+            // Si ocurre algún error durante la solicitud o procesamiento de la respuesta, se muestra una alerta con el mensaje de error
+            alert(`Error: ${err.message}`);
+        });
+    } else {
+        // Si el usuario cancela la confirmación, se muestra un mensaje informando que la eliminación fue cancelada
+        alert('La eliminación ha sido cancelada.');
+    }
 }
+
 </script>
 
 </body>

@@ -1,5 +1,18 @@
-import {obtenerTodosLosPaisService,eliminarPaisPorNombreService,crearPaisService,obtenerPaisePorNombreOficialService,actualizarPaisService} from '../services/paisService.mjs';
+// Importación de los servicios necesarios para interactuar con los datos de países
+import {
+    obtenerTodosLosPaisService,
+    eliminarPaisPorNombreService,
+    crearPaisService,
+    obtenerPaisePorNombreOficialService,
+    actualizarPaisService
+} from '../services/paisService.mjs';
 
+/**
+ * Controlador que maneja la vista del dashboard con la lista de países.
+ * 
+ * Obtiene todos los países a través del servicio correspondiente y los pasa a la vista
+ * 'dashboard' para su visualización. En caso de error, responde con un mensaje adecuado.
+ */
 export async function dashboardController(req, res) {
     try {
         const paises = await obtenerTodosLosPaisService(); 
@@ -9,10 +22,19 @@ export async function dashboardController(req, res) {
     }
 }
 
+/**
+ * Controlador que muestra el formulario para agregar un nuevo país.
+ */
 export function mostrarFormularioNuevoPais(req, res) {
-    res.render('addPais',{ title: 'Agregar Nuevo Pais'});
+    res.render('addPais', { title: 'Agregar Nuevo País' });
 }
 
+/**
+ * Controlador que maneja la creación de un nuevo país.
+ * 
+ * Recibe los datos del nuevo país desde el cuerpo de la solicitud, los procesa mediante el servicio
+ * correspondiente, y redirige al dashboard. Si ocurre un error, responde con un mensaje adecuado.
+ */
 export async function crearPaisController(req, res) {
     try {
         const nuevoPais = await crearPaisService(req.body);
@@ -22,6 +44,13 @@ export async function crearPaisController(req, res) {
     }
 }
 
+/**
+ * Controlador que muestra el formulario para editar un país existente.
+ * 
+ * Recibe el nombre oficial del país desde los parámetros de la URL, busca los detalles del país
+ * con el servicio correspondiente, y pasa la información a la vista 'editPais'. Si el país no se
+ * encuentra, devuelve un error 404.
+ */
 export async function mostrarFormularioEditarPais(req, res) {
     try {
         const { nombreOficial } = req.params;
@@ -35,6 +64,13 @@ export async function mostrarFormularioEditarPais(req, res) {
     }
 }
 
+/**
+ * Controlador que maneja la actualización de un país existente.
+ * 
+ * Recibe el nombre oficial del país desde los parámetros de la URL y los datos actualizados del país
+ * desde el cuerpo de la solicitud. Llama al servicio para actualizar el país y responde con un mensaje
+ * adecuado. Si el país no se encuentra, devuelve un error 404.
+ */
 export async function actualizarPaisController(req, res) {
     try {
         const { nombreOficial } = req.params;
@@ -52,6 +88,13 @@ export async function actualizarPaisController(req, res) {
     }
 }
 
+/**
+ * Controlador que maneja la eliminación de un país.
+ * 
+ * Recibe el nombre oficial del país desde los parámetros de la URL, y llama al servicio correspondiente
+ * para eliminarlo. Si el país no se encuentra, responde con un error 404. Si la eliminación es exitosa,
+ * responde con un mensaje de éxito.
+ */
 export async function eliminarPaisPorNombreController(req, res) {
     const { nombreOficial } = req.params;
     try {
@@ -65,7 +108,11 @@ export async function eliminarPaisPorNombreController(req, res) {
     }
 }
 
+/**
+ * Controlador que muestra la página principal del sitio.
+ */
 export function homeController(req, res) {
-    res.render('index', { title: 'Pagina Principal' });
+    res.render('index', { title: 'Página Principal' });
 }
+
 
