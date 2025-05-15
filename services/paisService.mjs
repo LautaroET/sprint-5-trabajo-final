@@ -61,9 +61,10 @@ export async function actualizarPaisService(nombreOficial, datosActualizados) {
  * @param {String} nombreOficial - El nombre oficial del país a eliminar.
  * @returns {Promise<Object>} El resultado de la operación de eliminación.
  */
-export async function eliminarPaisPorNombreService(nombreOficial) {
-    return await paisRepo.eliminarPorNombre(nombreOficial);
+export async function eliminarPaisPorIdService(id) {
+    return await paisRepo.eliminarPorId(id); 
 }
+
 
 
 

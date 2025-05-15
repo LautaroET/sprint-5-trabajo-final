@@ -39,7 +39,10 @@
     <td class="p-5 text-2xl"><a href="<%= pais.maps.googleMaps%>">mapa</a></td>
     <td class="p-5 text-2xl"><%= pais.creador %></td>
     <td class="p-5"><a href="/api/pais/<%= pais.name.official %>/editar"><button class="cursor-pointer bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded focus:outline-none focus:shadow-outline text-2xl">Editar</button></a></td>
-    <td class="p-5"><button class="cursor-pointer bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded focus:outline-none focus:shadow-outline text-2xl" onclick="eliminarPais('<%= pais.name.official %>')">Eliminar</button></td>
+    <td class="p-5">
+    <button class="cursor-pointer bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded focus:outline-none focus:shadow-outline text-2xl"
+        onclick="eliminarPais('<%= pais._id %>')">Eliminar</button>
+    </td>
 </tr>
 <% }); %>
 
@@ -62,12 +65,12 @@
  * 
  * @param {string} nombreOficial - El nombre oficial del país que se desea eliminar.
  */
-function eliminarPais(nombreOficial) {
+function eliminarPais(id) {
     // Se muestra una ventana de confirmación al usuario para asegurar que desea eliminar el país
     if (confirm('¿Está seguro de que desea eliminar este país?')) {
         
         // Se realiza la solicitud DELETE al servidor para eliminar el país indicado
-        fetch(`/api/pais/${nombreOficial}`, {
+        fetch(`/api/pais/${id}`, {
             method: 'DELETE' // Especificamos que la solicitud es de tipo DELETE
         })
         .then(res => {

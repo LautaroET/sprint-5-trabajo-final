@@ -1,7 +1,7 @@
 // Importación de los servicios necesarios para interactuar con los datos de países
 import {
     obtenerTodosLosPaisService,
-    eliminarPaisPorNombreService,
+    eliminarPaisPorIdService,
     crearPaisService,
     obtenerPaisePorNombreOficialService,
     actualizarPaisService
@@ -95,10 +95,10 @@ export async function actualizarPaisController(req, res) {
  * para eliminarlo. Si el país no se encuentra, responde con un error 404. Si la eliminación es exitosa,
  * responde con un mensaje de éxito.
  */
-export async function eliminarPaisPorNombreController(req, res) {
-    const { nombreOficial } = req.params;
+export async function eliminarPaisPorIdController(req, res) {
+    const { id } = req.params;
     try {
-        const resultado = await eliminarPaisPorNombreService(nombreOficial);
+        const resultado = await eliminarPaisPorIdService(id);
         if (resultado.deletedCount === 0) {
             return res.status(404).json({ mensaje: 'País no encontrado' });
         }

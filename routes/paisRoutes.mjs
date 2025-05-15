@@ -1,5 +1,5 @@
 import express from 'express';
-import { eliminarPaisPorNombreController,dashboardController,homeController ,mostrarFormularioNuevoPais,crearPaisController,mostrarFormularioEditarPais,actualizarPaisController} from '../controllers/paisControllers.mjs';
+import { eliminarPaisPorIdController,dashboardController,homeController ,mostrarFormularioNuevoPais,crearPaisController,mostrarFormularioEditarPais,actualizarPaisController} from '../controllers/paisControllers.mjs';
 import{nuevoPaisValidationRules} from '../validation/validationRule.mjs'
 import{handleValidationErrors} from '../validation/errorMiddleware.mjs'
 
@@ -29,7 +29,7 @@ router.put(
 );
 
 
-router.delete('/pais/:nombreOficial', eliminarPaisPorNombreController);
+router.delete('/pais/:id', eliminarPaisPorIdController);
 
 //endpoint para mostrar Pagina Principal
 router.get('/home',homeController);

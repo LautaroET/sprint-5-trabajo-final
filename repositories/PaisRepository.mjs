@@ -58,9 +58,10 @@ class PaisRepository extends IRepository {
      * @param {String} nombreOficial - El nombre oficial del país a eliminar.
      * @returns {Promise<Object>} Resultado de la operación de eliminación.
      */
-    async eliminarPorNombre(nombreOficial) {
-        return await Pais.deleteOne({ 'name.official': nombreOficial });
+    async eliminarPorId(id) {
+        return await Pais.findByIdAndDelete(id);
     }
+
 }
 
 // Exportación del repositorio para su uso en otras partes de la aplicación
