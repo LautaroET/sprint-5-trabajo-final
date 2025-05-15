@@ -2,119 +2,141 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Editar Pais</title>
+    <title>Editar País</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
-<body class="bg-gray-300">
-    <h1 class="text-4xl text-center py-4">Editar Pais</h1>
+<body class="bg-gray-100">
+    <h1 class="text-3xl sm:text-4xl text-center py-6 font-semibold text-gray-800">Editar País</h1>
 
-    <form class="block w-300 mx-auto p-6 border border-rounded-md shadow-md" id="editarFormulario" data-id="<%= pais._id %>">
-        <label class="p-4 text-3xl" for="name.common">Nombre País Común:</label>
-        <input class="border bg-white field-sizing-content min-w-40" type="text" name="name.common" value="<%= pais.name.common %>" minlength="3" maxlength="90" required><br><br>
+    <form class="max-w-md mx-auto p-6 bg-white rounded-md shadow-md" id="editarFormulario" data-id="<%= pais._id %>">
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="name.common">Nombre País Común:</label>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" name="name.common" id="name.common" value="<%= pais.name.common %>" minlength="3" maxlength="90" required>
+        </div>
 
-        <label class="p-4 text-3xl" for="name.official">Nombre País Oficial:</label>
-        <input class="border bg-white field-sizing-content min-w-40" type="text" name="name.official" value="<%= pais.name.official %>" minlength="3" maxlength="90" required><br><br>
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="name.official">Nombre País Oficial:</label>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" name="name.official" id="name.official" value="<%= pais.name.official %>" minlength="3" maxlength="90" required>
+        </div>
 
-        <label class="p-4 text-3xl" for="name.nativeName.spa.official">Nombre País Oficial (Español):</label>
-        <input class="border bg-white field-sizing-content min-w-40" type="text" name="name.nativeName.spa.official" value="<%= pais.name.nativeName.spa.official %>" minlength="3" maxlength="90" required><br><br>
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="name.nativeName.spa.official">Nombre País Oficial (Español):</label>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" name="name.nativeName.spa.official" id="name.nativeName.spa.official" value="<%= pais.name.nativeName.spa.official %>" minlength="3" maxlength="90" required>
+        </div>
 
-        <label class="p-4 text-3xl" for="capital">Capital(es):</label><br>
-        <input class="border bg-white field-sizing-content min-w-40" type="text" name="capital" value="<%= pais.capital %>"><br><br>
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="capital">Capital(es):</label>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" name="capital" id="capital" value="<%= pais.capital %>">
+        </div>
 
-        <label class="p-4 text-3xl" for="borders">Fronteras (separadas por coma):</label>
-        <input class="border bg-white field-sizing-content min-w-40" type="text" name="borders" value="<%= pais.borders %>"><br><br>
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="borders">Fronteras (separadas por coma):</label>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" name="borders" id="borders" value="<%= pais.borders %>">
+        </div>
 
-        <label class="p-4 text-3xl" for="area">Área (km²):</label>
-        <input class="border bg-white field-sizing-content min-w-40" type="number" name="area" value="<%= pais.area %>" min="0"><br><br>
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="area">Área (km²):</label>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="number" name="area" id="area" value="<%= pais.area %>" min="0">
+        </div>
 
-        <label class="p-4 text-3xl" for="population">Población:</label>
-        <input class="border bg-white field-sizing-content min-w-40" type="number" name="population" value="<%= pais.population %>" min="0"><br><br>
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="population">Población:</label>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="number" name="population" id="population" value="<%= pais.population %>" min="0">
+        </div>
 
-        <label class="p-4 text-3xl" for="region">Región:</label>
-        <input class="border bg-white field-sizing-content min-w-40" type="text" name="region" value="<%= pais.region %>"><br><br>
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="region">Región:</label>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" name="region" id="region" value="<%= pais.region %>">
+        </div>
 
-        <label class="p-4 text-3xl" for="subregion">Sub Región:</label>
-        <input class="border bg-white field-sizing-content min-w-40" type="text" name="subregion" value="<%= pais.subregion %>"><br><br>
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="subregion">Sub Región:</label>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" name="subregion" id="subregion" value="<%= pais.subregion %>">
+        </div>
 
-        <label class="p-4 text-3xl" for="timezones">Zona Horaria:</label>
-        <input class="border bg-white field-sizing-content min-w-40" type="text" name="timezones" value="<%= pais.timezones %>"><br><br>
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="timezones">Zona Horaria:</label>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" name="timezones" id="timezones" value="<%= pais.timezones %>">
+        </div>
 
-        <label class="p-4 text-3xl" for="flags.png">Bandera (URL):</label>
-        <input class="border bg-white field-sizing-content min-w-40" type="url" name="flags.png" value="<%= pais.flags.png %>"><br><br>
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="flags.png">Bandera (URL):</label>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="url" name="flags.png" id="flags.png" value="<%= pais.flags.png %>">
+        </div>
 
-        <label class="p-4 text-3xl" for="maps.googleMaps">Mapa (URL):</label>
-        <input class="border bg-white field-sizing-content min-w-40" type="url" name="maps.googleMaps" value="<%= pais.maps.googleMaps %>"><br><br>
-        <button class="cursor-pointer text-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">Guardar Cambios</button>
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="maps.googleMaps">Mapa (URL):</label>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="url" name="maps.googleMaps" id="maps.googleMaps" value="<%= pais.maps.googleMaps %>">
+        </div>
+
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="gini">Índice GINI:</label>
+            <div class="flex space-x-4">
+                <input class="shadow appearance-none border rounded w-1/2 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="number" name="gini_year" id="gini_year" placeholder="Año" min="1900" max="2099" value="<%= Object.keys(pais.gini)[0] %>">
+                <input class="shadow appearance-none border rounded w-1/2 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="number" name="gini_value" id="gini_value" placeholder="Índice" min="0" max="100" step="0.1" value="<%= Object.values(pais.gini)[0] %>">
+            </div>
+        </div>
+
+        <button class="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">Guardar Cambios</button>
     </form>
     <br>
 
     <script>
-    // Añadimos un escuchador de evento para cuando el formulario sea enviado
     document.getElementById('editarFormulario').addEventListener('submit', async function (e) {
-        // Prevenimos la acción por defecto del formulario (que es recargar la página)
         e.preventDefault();
-        // Obtenemos el formulario que ha sido enviado
         const form = e.target;
-
-        // Creamos un FormData para obtener todos los valores del formulario
         const formData = new FormData(form);
-
-        // Creamos un objeto vacío para almacenar los datos del formulario
         const data = {};
 
-        // Convertimos los valores del FormData en un objeto
         formData.forEach((value, key) => {
             data[key] = value;
         });
 
-        // Verificamos y parseamos los campos que deben ser arrays
-        // Si la propiedad 'capital' es una cadena, la convertimos en un array de cadenas
-        if (typeof data.capital === 'string') {
-            data.capital = data.capital.split(',').map(c => c.trim());
+        // Función para procesar arrays desde strings
+        function processArrayField(fieldName) {
+            if (typeof data[fieldName] === 'string') {
+                data[fieldName] = data[fieldName].split(',').map(item => item.trim());
+            }
         }
 
-        // Si la propiedad 'borders' es una cadena, la convertimos en un array de cadenas
-        if (typeof data.borders === 'string') {
-            data.borders = data.borders.split(',').map(f => f.trim());
+        processArrayField('capital');
+        processArrayField('borders');
+        processArrayField('timezones');
+
+         // Agrega manejo para el GINI
+        const giniYear = data.gini_year;
+        const giniValue = data.gini_value;
+        if (giniYear && giniValue) {
+            data.gini = {
+                [giniYear]: parseFloat(giniValue)
+            };
+        } else {
+            delete data.gini; // Elimina la propiedad GINI si no se proporcionaron ambos valores
         }
 
-        // Si la propiedad 'timezones' es una cadena, la convertimos en un array de cadenas
-        if (typeof data.timezones === 'string') {
-            data.timezones = data.timezones.split(',').map(tz => tz.trim());
-        }
-
-        // Obtenemos el ID del país desde el atributo 'data-id' del formulario
         const id = form.getAttribute('data-id');
 
-
         try {
-            // Enviamos la solicitud PUT al servidor con los datos del formulario
             const response = await fetch(`/api/pais/${id}`, {
-                method: 'PUT',   // Indicamos que la solicitud es de tipo PUT (para actualización)
+                method: 'PUT',
                 headers: {
-                    'Content-Type': 'application/json'   // Indicamos que los datos enviados son en formato JSON
+                    'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(data)   // Convertimos el objeto data a una cadena JSON para enviarlo
+                body: JSON.stringify(data)
             });
 
-            // Si la respuesta del servidor es exitosa (status 200)
             if (response.ok) {
-                // Redirigimos al dashboard después de la actualización
                 window.location.href = '/api/dashboard';
             } else {
-                // Si hubo un error, mostramos el mensaje de error al usuario
-                const error = await response.json();
-                alert('Error al actualizar: ' + error.mensaje);
+                const errorData = await response.json();
+                alert('Error al actualizar: ' + errorData.mensaje);
             }
         } catch (err) {
-            // En caso de error en la conexión con el servidor, mostramos el mensaje de error
             console.error(err);
             alert('Error al conectar con el servidor');
         }
     });
-</script>
-
-
+    </script>
 </body>
 </html>
 

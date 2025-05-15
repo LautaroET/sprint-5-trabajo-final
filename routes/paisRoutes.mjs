@@ -13,7 +13,7 @@ router.get('/pais/nuevo', mostrarFormularioNuevoPais);
 
 router.post(
     '/pais',
-    ...nuevoPaisValidationRules(), // ← Esto es importante
+    ...nuevoPaisValidationRules(), 
     handleValidationErrors,
     crearPaisController
 );

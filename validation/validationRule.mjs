@@ -196,15 +196,14 @@ body('flags.png')
    * Valida la URL del mapa de Google Maps del país.
    * - No debe estar vacío.
    * - Debe ser una cadena de texto.
-   * - Debe ser una URL válida.
+   * - Debe ser una URL válida. eje https://goo.gl/maps/Z9DXNxhf2o93kvyc6
    * - Elimina espacios en blanco al inicio y al final.
    */
-/*body('maps.googleMaps')
-.o
+body('maps.googleMaps')
     .notEmpty().withMessage('La URL del mapa es obligatoria')
     .isString().withMessage('La URL del mapa debe ser una cadena de texto')
     .isURL().withMessage('La URL del mapa debe ser válida')
-    .trim(),*/
+    .trim(),
 ];
 
 

@@ -16,7 +16,7 @@ class PaisRepository extends IRepository {
      * @returns {Promise<Array>} Un array de países obtenidos de la base de datos.
      */
     async obtenerTodos() {
-        return await Pais.find({creador:"Tapia Lautaro", independent: { $exists: true }});
+        return await Pais.find({creador:"Tapia Lautaro", 'name.official': { $exists: true }}).sort({ 'name.official': 1 });
         // Comentado para búsqueda específica por creador: return await Pais.find({ creador: 'Tapia Lautaro' });
     }
 

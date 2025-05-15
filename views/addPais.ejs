@@ -5,48 +5,80 @@
     <title>Nuevo País</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
-<body class="bg-gray-300">
-    <h1 class="text-4xl text-center py-4">Nuevo País</h1>
+<body class="bg-gray-100">
+    <h1 class="text-3xl sm:text-4xl text-center py-6 font-semibold text-gray-800">Nuevo País</h1>
 
-    <form class="block w-300 mx-auto p-6 border border rounded-md shadow-md" action="/api/pais" method="POST" autocomplete="off">
+    <form class="max-w-md mx-auto p-6 bg-white rounded-md shadow-md" action="/api/pais" method="POST" autocomplete="off">
 
-        <label class="p-4 text-2xl" for="name.common">Nombre País Común:</label>
-<input class="border bg-white field-sizing-content min-w-40" type="text" name="name.common" minlength="3" maxlength="90" required><br><br>
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="name.common">Nombre País Común:</label>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" name="name.common" id="name.common" minlength="3" maxlength="90" required>
+        </div>
 
-<label class="p-4 text-2xl" for="name.official">Nombre País Oficial:</label>
-<input class="border bg-white field-sizing-content min-w-40" type="text" name="name.official" minlength="3" maxlength="90" required><br><br>
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="name.official">Nombre País Oficial:</label>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" name="name.official" id="name.official" minlength="3" maxlength="90" required>
+        </div>
 
-<label class="p-4 text-2xl" for="name.nativeName.spa.official">Nombre País Oficial (Español):</label>
-<input class="border bg-white field-sizing-content min-w-40" type="text" name="name.nativeName.spa.official" minlength="3" maxlength="90" required><br><br>
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="name.nativeName.spa.official">Nombre País Oficial (Español):</label>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" name="name.nativeName.spa.official" id="name.nativeName.spa.official" minlength="3" maxlength="90" required>
+        </div>
 
-<label class="p-4 text-2xl" for="capital">Capital(es):</label><br>
-<input class="border bg-white field-sizing-content min-w-40" type="text" name="capital"><br><br>
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="capital">Capital(es):</label>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" name="capital" id="capital">
+        </div>
 
-<label class="p-4 text-2xl" for="borders">Fronteras (separadas por coma):</label>
-<input class="border bg-white field-sizing-content min-w-40" type="text" name="borders"><br><br>
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="borders">Fronteras (separadas por coma):</label>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" name="borders" id="borders">
+        </div>
 
-<label class="p-4 text-2xl" for="area">Área (km²):</label>
-<input class="border bg-white field-sizing-content min-w-40" type="number" name="area" min="0"><br><br>
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="area">Área (km²):</label>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="number" name="area" id="area" min="0">
+        </div>
 
-<label class="p-4 text-2xl" for="population">Población:</label>
-<input class="border bg-white field-sizing-content min-w-40" type="number" name="population" min="0"><br><br>
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="population">Población:</label>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="number" name="population" id="population" min="0">
+        </div>
 
-<label class="p-4 text-2xl" for="region">Región:</label>
-<input class="border bg-white field-sizing-content min-w-40" type="text" name="region"><br><br>
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="region">Región:</label>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" name="region" id="region">
+        </div>
 
-<label class="p-4 text-2xl" for="subregion">Sub Región:</label>
-<input class="border bg-white field-sizing-content min-w-40" type="text" name="subregion"><br><br>
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="subregion">Sub Región:</label>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" name="subregion" id="subregion">
+        </div>
 
-<label class="p-4 text-2xl" for="timezones">Zona Horaria:</label>
-<input class="border bg-white field-sizing-content min-w-40" type="text" name="timezones"><br><br>
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="timezones">Zona Horaria:</label>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" name="timezones" id="timezones">
+        </div>
 
-<label class="p-4 text-2xl" for="flags.png">Bandera (URL):</label>
-<input class="border bg-white field-sizing-content min-w-40" type="url" name="flags.png"><br><br>
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="flags.png">Bandera (URL):</label>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="url" name="flags.png" id="flags.png">
+        </div>
 
-<label class="p-4 text-2xl" for="maps.googleMaps">Mapa (URL):</label>
-<input class="border bg-white field-sizing-content min-w-40" type="url" name="mapa"><br><br>
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="maps.googleMaps">Mapa (URL):</label>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="url" name="mapa" id="maps.googleMaps">
+        </div>
 
-        <button class=" cursor-pointer text-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">Crear País</button>
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="gini">Índice GINI:</label>
+            <div class="flex space-x-4">
+                <input class="shadow appearance-none border rounded w-1/2 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="number" name="gini_year" id="gini_year" placeholder="Año" min="1900" max="2099">
+                <input class="shadow appearance-none border rounded w-1/2 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="number" name="gini_value" id="gini_value" placeholder="Índice" min="0" max="100" step="0.1">
+            </div>
+        </div>
+
+        <button class="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">Crear País</button>
     </form>
     <br>
 </body>
