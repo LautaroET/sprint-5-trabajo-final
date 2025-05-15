@@ -50,7 +50,7 @@ const paisSchema = new mongoose.Schema(
         },
         creador: { 
             type: String, 
-            default: 'Tapia Lautaro Exequiel' // Creador del registro, valor por defecto
+            default: 'Tapia Lautaro' // Creador del registro, valor por defecto
         }
     },
     { collection: 'paises' } // Nombre de la colección en MongoDB

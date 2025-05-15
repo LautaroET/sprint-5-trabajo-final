@@ -199,11 +199,12 @@ body('flags.png')
    * - Debe ser una URL válida.
    * - Elimina espacios en blanco al inicio y al final.
    */
-body('maps.googleMaps')
+/*body('maps.googleMaps')
+.o
     .notEmpty().withMessage('La URL del mapa es obligatoria')
     .isString().withMessage('La URL del mapa debe ser una cadena de texto')
     .isURL().withMessage('La URL del mapa debe ser válida')
-    .trim(),
+    .trim(),*/
 ];
 
 
