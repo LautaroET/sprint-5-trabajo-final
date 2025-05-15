@@ -19,10 +19,10 @@ router.post(
 );
 
 
-router.get('/pais/:nombreOficial/editar', mostrarFormularioEditarPais);
+router.get('/pais/:id/editar', mostrarFormularioEditarPais);
 
 router.put(
-    '/pais/:nombreOficial',
+    '/pais/:id',
     ...nuevoPaisValidationRules(),
     handleValidationErrors,
     actualizarPaisController

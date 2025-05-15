@@ -1,117 +1,117 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Editar Pais</title>
-  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <meta charset="UTF-8">
+    <title>Editar Pais</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 <body class="bg-gray-300">
-  <h1 class="text-4xl text-center py-4">Editar Pais</h1>
+    <h1 class="text-4xl text-center py-4">Editar Pais</h1>
 
-  <form class="bblock w-300 mx-auto p-6 border border rounded-md shadow-md" id="editarFormulario" >
-    <label class="p-4 text-3xl" for="name.common">Nombre País Común:</label>
-<input class="border bg-white field-sizing-content min-w-40" type="text" name="name.common" value="<%= pais.name.common %>" minlength="3" maxlength="90" required><br><br>
+    <form class="block w-300 mx-auto p-6 border border-rounded-md shadow-md" id="editarFormulario" data-id="<%= pais._id %>">
+        <label class="p-4 text-3xl" for="name.common">Nombre País Común:</label>
+        <input class="border bg-white field-sizing-content min-w-40" type="text" name="name.common" value="<%= pais.name.common %>" minlength="3" maxlength="90" required><br><br>
 
-<label class="p-4 text-3xl" for="name.official">Nombre País Oficial:</label>
-<input class="border bg-white field-sizing-content min-w-40" type="text" name="name.official" value="<%= pais.name.official %>" minlength="3" maxlength="90" required><br><br>
+        <label class="p-4 text-3xl" for="name.official">Nombre País Oficial:</label>
+        <input class="border bg-white field-sizing-content min-w-40" type="text" name="name.official" value="<%= pais.name.official %>" minlength="3" maxlength="90" required><br><br>
 
-<label class="p-4 text-3xl" for="name.nativeName.spa.official">Nombre País Oficial (Español):</label>
-<input class="border bg-white field-sizing-content min-w-40" type="text" name="name.nativeName.spa.official" value="<%= pais.name.nativeName.spa.official %>" minlength="3" maxlength="90" required><br><br>
+        <label class="p-4 text-3xl" for="name.nativeName.spa.official">Nombre País Oficial (Español):</label>
+        <input class="border bg-white field-sizing-content min-w-40" type="text" name="name.nativeName.spa.official" value="<%= pais.name.nativeName.spa.official %>" minlength="3" maxlength="90" required><br><br>
 
-<label class="p-4 text-3xl" for="capital">Capital(es):</label><br>
-<input class="border bg-white field-sizing-content min-w-40" type="text" name="capital" value="<%= pais.capital %>"><br><br>
+        <label class="p-4 text-3xl" for="capital">Capital(es):</label><br>
+        <input class="border bg-white field-sizing-content min-w-40" type="text" name="capital" value="<%= pais.capital %>"><br><br>
 
-<label class="p-4 text-3xl" for="borders">Fronteras (separadas por coma):</label>
-<input class="border bg-white field-sizing-content min-w-40" type="text" name="borders" value="<%= pais.borders %>"><br><br>
+        <label class="p-4 text-3xl" for="borders">Fronteras (separadas por coma):</label>
+        <input class="border bg-white field-sizing-content min-w-40" type="text" name="borders" value="<%= pais.borders %>"><br><br>
 
-<label class="p-4 text-3xl" for="area">Área (km²):</label>
-<input class="border bg-white field-sizing-content min-w-40" type="number" name="area" value="<%= pais.area %>" min="0"><br><br>
+        <label class="p-4 text-3xl" for="area">Área (km²):</label>
+        <input class="border bg-white field-sizing-content min-w-40" type="number" name="area" value="<%= pais.area %>" min="0"><br><br>
 
-<label class="p-4 text-3xl" for="population">Población:</label>
-<input class="border bg-white field-sizing-content min-w-40" type="number" name="population" value="<%= pais.population %>" min="0"><br><br>
+        <label class="p-4 text-3xl" for="population">Población:</label>
+        <input class="border bg-white field-sizing-content min-w-40" type="number" name="population" value="<%= pais.population %>" min="0"><br><br>
 
-<label class="p-4 text-3xl" for="region">Región:</label>
-<input class="border bg-white field-sizing-content min-w-40" type="text" name="region" value="<%= pais.region %>"><br><br>
+        <label class="p-4 text-3xl" for="region">Región:</label>
+        <input class="border bg-white field-sizing-content min-w-40" type="text" name="region" value="<%= pais.region %>"><br><br>
 
-<label class="p-4 text-3xl" for="subregion">Sub Región:</label>
-<input class="border bg-white field-sizing-content min-w-40" type="text" name="subregion" value="<%= pais.subregion %>"><br><br>
+        <label class="p-4 text-3xl" for="subregion">Sub Región:</label>
+        <input class="border bg-white field-sizing-content min-w-40" type="text" name="subregion" value="<%= pais.subregion %>"><br><br>
 
-<label class="p-4 text-3xl" for="timezones">Zona Horaria:</label>
-<input class="border bg-white field-sizing-content min-w-40" type="text" name="timezones" value="<%= pais.timezones %>"><br><br>
+        <label class="p-4 text-3xl" for="timezones">Zona Horaria:</label>
+        <input class="border bg-white field-sizing-content min-w-40" type="text" name="timezones" value="<%= pais.timezones %>"><br><br>
 
-<label class="p-4 text-3xl" for="flags.png">Bandera (URL):</label>
-<input class="border bg-white field-sizing-content min-w-40" type="url" name="flags.png" value="<%= pais.flags.png %>"><br><br>
+        <label class="p-4 text-3xl" for="flags.png">Bandera (URL):</label>
+        <input class="border bg-white field-sizing-content min-w-40" type="url" name="flags.png" value="<%= pais.flags.png %>"><br><br>
 
-<label class="p-4 text-3xl" for="maps.googleMaps">Mapa (URL):</label>
-<input class="border bg-white field-sizing-content min-w-40" type="url" name="maps.googleMaps" value="<%= pais.maps.googleMaps %>"><br><br>
-<button class=" cursor-pointer text-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">Guardar Cambios</button>
-  </form>
-  <br>
+        <label class="p-4 text-3xl" for="maps.googleMaps">Mapa (URL):</label>
+        <input class="border bg-white field-sizing-content min-w-40" type="url" name="maps.googleMaps" value="<%= pais.maps.googleMaps %>"><br><br>
+        <button class="cursor-pointer text-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">Guardar Cambios</button>
+    </form>
+    <br>
 
-  <script>
-  // Añadimos un escuchador de evento para cuando el formulario sea enviado
-  document.getElementById('editarFormulario').addEventListener('submit', async function (e) {
-    // Prevenimos la acción por defecto del formulario (que es recargar la página)
-    e.preventDefault();
+    <script>
+    // Añadimos un escuchador de evento para cuando el formulario sea enviado
+    document.getElementById('editarFormulario').addEventListener('submit', async function (e) {
+        // Prevenimos la acción por defecto del formulario (que es recargar la página)
+        e.preventDefault();
+        // Obtenemos el formulario que ha sido enviado
+        const form = e.target;
 
-    // Obtenemos el formulario que ha sido enviado
-    const form = e.target;
+        // Creamos un FormData para obtener todos los valores del formulario
+        const formData = new FormData(form);
 
-    // Creamos un FormData para obtener todos los valores del formulario
-    const formData = new FormData(form);
+        // Creamos un objeto vacío para almacenar los datos del formulario
+        const data = {};
 
-    // Creamos un objeto vacío para almacenar los datos del formulario
-    const data = {};
+        // Convertimos los valores del FormData en un objeto
+        formData.forEach((value, key) => {
+            data[key] = value;
+        });
 
-    // Convertimos los valores del FormData en un objeto
-    formData.forEach((value, key) => {
-      data[key] = value;
+        // Verificamos y parseamos los campos que deben ser arrays
+        // Si la propiedad 'capital' es una cadena, la convertimos en un array de cadenas
+        if (typeof data.capital === 'string') {
+            data.capital = data.capital.split(',').map(c => c.trim());
+        }
+
+        // Si la propiedad 'borders' es una cadena, la convertimos en un array de cadenas
+        if (typeof data.borders === 'string') {
+            data.borders = data.borders.split(',').map(f => f.trim());
+        }
+
+        // Si la propiedad 'timezones' es una cadena, la convertimos en un array de cadenas
+        if (typeof data.timezones === 'string') {
+            data.timezones = data.timezones.split(',').map(tz => tz.trim());
+        }
+
+        // Obtenemos el ID del país desde el atributo 'data-id' del formulario
+        const id = form.getAttribute('data-id');
+
+
+        try {
+            // Enviamos la solicitud PUT al servidor con los datos del formulario
+            const response = await fetch(`/api/pais/${id}`, {
+                method: 'PUT',   // Indicamos que la solicitud es de tipo PUT (para actualización)
+                headers: {
+                    'Content-Type': 'application/json'   // Indicamos que los datos enviados son en formato JSON
+                },
+                body: JSON.stringify(data)   // Convertimos el objeto data a una cadena JSON para enviarlo
+            });
+
+            // Si la respuesta del servidor es exitosa (status 200)
+            if (response.ok) {
+                // Redirigimos al dashboard después de la actualización
+                window.location.href = '/api/dashboard';
+            } else {
+                // Si hubo un error, mostramos el mensaje de error al usuario
+                const error = await response.json();
+                alert('Error al actualizar: ' + error.mensaje);
+            }
+        } catch (err) {
+            // En caso de error en la conexión con el servidor, mostramos el mensaje de error
+            console.error(err);
+            alert('Error al conectar con el servidor');
+        }
     });
-
-    // Verificamos y parseamos los campos que deben ser arrays
-    // Si la propiedad 'capital' es una cadena, la convertimos en un array de cadenas
-    if (typeof data.capital === 'string') {
-      data.capital = data.capital.split(',').map(c => c.trim());
-    }
-
-    // Si la propiedad 'borders' es una cadena, la convertimos en un array de cadenas
-    if (typeof data.borders === 'string') {
-      data.borders = data.borders.split(',').map(f => f.trim());
-    }
-
-    // Si la propiedad 'timezones' es una cadena, la convertimos en un array de cadenas
-    if (typeof data.timezones === 'string') {
-      data.timezones = data.timezones.split(',').map(tz => tz.trim());
-    }
-
-    // Obtenemos el nombre oficial del país desde el formulario para construir la URL
-    const nombreOficial = encodeURIComponent(formData.get('name.official'));
-
-    try {
-      // Enviamos la solicitud PUT al servidor con los datos del formulario
-      const response = await fetch(`/api/pais/${nombreOficial}`, {
-        method: 'PUT',  // Indicamos que la solicitud es de tipo PUT (para actualización)
-        headers: {
-          'Content-Type': 'application/json'  // Indicamos que los datos enviados son en formato JSON
-        },
-        body: JSON.stringify(data)  // Convertimos el objeto data a una cadena JSON para enviarlo
-      });
-
-      // Si la respuesta del servidor es exitosa (status 200)
-      if (response.ok) {
-        // Redirigimos al dashboard después de la actualización
-        window.location.href = '/api/dashboard';
-      } else {
-        // Si hubo un error, mostramos el mensaje de error al usuario
-        const error = await response.json();
-        alert('Error al actualizar: ' + error.mensaje);
-      }
-    } catch (err) {
-      // En caso de error en la conexión con el servidor, mostramos el mensaje de error
-      console.error(err);
-      alert('Error al conectar con el servidor');
-    }
-  });
 </script>
 
 

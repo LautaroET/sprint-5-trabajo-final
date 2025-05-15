@@ -8,7 +8,7 @@
 </head>
 <body class="bg-gray-300">
     <table class="w-full shadow-md rounded-lg overflow-hidden border border-collapse">
-        <%-include('partials/header.ejs')%>
+        <%- include('partials/header.ejs') %>
         <tbody>
 <%
     let totalPoblacion = 0;
@@ -17,15 +17,7 @@
     let contadorGini = 0;
 %>
 
-<% paises.forEach(pais => { 
-    totalPoblacion += pais.population || 0;
-    totalArea += pais.area || 0;
-    const valoresGini = pais.gini ? Object.values(pais.gini) : [];
-    if (valoresGini.length > 0) {
-        totalGini += valoresGini[0];
-        contadorGini++;
-    }
-%>
+<% paises.forEach(pais => { %>
 <tr class="hover:bg-gray-50 border">
     <td class="p-5 text-1.5xl"><%= pais.name?.nativeName?.spa?.official || pais.name.official %></td>
     <td class="p-5 text-1.5xl"><%= pais.capital %></td>
@@ -35,16 +27,24 @@
     <td class="p-5 text-1.5xl"><%= pais.region %></td>
     <td class="p-5 text-1.5xl"><%= pais.subregion %></td>
     <td class="p-5 text-1.5xl"><%= pais.timezones.join(", ") %></td>
-    <td class="p-3"><img src="<%= pais.flags.png %>" alt="pais.name.common" class="h-8"></td>
-    <td class="p-5 text-2xl"><a href="<%= pais.maps.googleMaps%>">mapa</a></td>
+    <td class="p-3"><img src="<%= pais.flags.png %>" alt="<%= pais.name.common %>" class="h-8"></td>
+    <td class="p-5 text-2xl"><a href="<%= pais.maps.googleMaps %>">mapa</a></td>
     <td class="p-5 text-2xl"><%= pais.creador %></td>
-    <td class="p-5"><a href="/api/pais/<%= pais.name.official %>/editar"><button class="cursor-pointer bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded focus:outline-none focus:shadow-outline text-2xl">Editar</button></a></td>
+    <td class="p-5"><a href="/api/pais/<%= pais._id %>/editar"><button class="cursor-pointer bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded focus:outline-none focus:shadow-outline text-2xl">Editar</button></a></td>
     <td class="p-5">
-    <button class="cursor-pointer bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded focus:outline-none focus:shadow-outline text-2xl"
-        onclick="eliminarPais('<%= pais._id %>')">Eliminar</button>
+        <button class="cursor-pointer bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded focus:outline-none focus:shadow-outline text-2xl"
+            onclick="eliminarPais('<%= pais._id %>')">Eliminar</button>
     </td>
 </tr>
-<% }); %>
+<%
+    totalPoblacion += pais.population || 0;
+    totalArea += pais.area || 0;
+    const valoresGini = pais.gini ? Object.values(pais.gini) : [];
+    if (valoresGini.length > 0) {
+        totalGini += valoresGini[0];
+        contadorGini++;
+    }
+}); %>
 
 <tr class="bg-yellow-200 font-bold text-lg border-t-2 border-gray-700">
     <td colspan="3" class="p-5">Totales:</td>
@@ -62,13 +62,13 @@
     <script>
 /**
  * Elimina un país del sistema, confirmando la acción con el usuario y enviando una solicitud DELETE al servidor.
- * 
+ *
  * @param {string} nombreOficial - El nombre oficial del país que se desea eliminar.
  */
 function eliminarPais(id) {
     // Se muestra una ventana de confirmación al usuario para asegurar que desea eliminar el país
     if (confirm('¿Está seguro de que desea eliminar este país?')) {
-        
+
         // Se realiza la solicitud DELETE al servidor para eliminar el país indicado
         fetch(`/api/pais/${id}`, {
             method: 'DELETE' // Especificamos que la solicitud es de tipo DELETE

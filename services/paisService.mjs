@@ -35,8 +35,8 @@ export async function crearPaisService(data) {
  * @param {String} nombreOficial - El nombre oficial del país a buscar.
  * @returns {Promise<Object|null>} El país encontrado o null si no se encuentra.
  */
-export async function obtenerPaisePorNombreOficialService(nombreOficial) {
-    return await paisRepo.obtenerPorNombreOficial(nombreOficial);
+export async function obtenerPaisPorIdService(id) {
+    return await paisRepo.obtenerPorId(id);
 }
 
 /**
@@ -49,9 +49,10 @@ export async function obtenerPaisePorNombreOficialService(nombreOficial) {
  * @param {Object} datosActualizados - Los datos actualizados del país.
  * @returns {Promise<Object|null>} El país actualizado o null si no se encuentra.
  */
-export async function actualizarPaisService(nombreOficial, datosActualizados) {
-    return await paisRepo.actualizar(nombreOficial, datosActualizados);
+export async function actualizarPaisServicePorId(id, datos) {
+    return await paisRepo.actualizarPorId(id, datos);
 }
+
 
 /**
  * Servicio para eliminar un país por su nombre oficial.

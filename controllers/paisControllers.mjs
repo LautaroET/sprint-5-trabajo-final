@@ -3,8 +3,8 @@ import {
     obtenerTodosLosPaisService,
     eliminarPaisPorIdService,
     crearPaisService,
-    obtenerPaisePorNombreOficialService,
-    actualizarPaisService
+    obtenerPaisPorIdService,
+    actualizarPaisServicePorId
 } from '../services/paisService.mjs';
 
 /**
@@ -53,16 +53,17 @@ export async function crearPaisController(req, res) {
  */
 export async function mostrarFormularioEditarPais(req, res) {
     try {
-        const { nombreOficial } = req.params;
-        const pais = await obtenerPaisePorNombreOficialService(nombreOficial);
+        const { id } = req.params; 
+        const pais = await obtenerPaisPorIdService(id); 
         if (!pais) {
             return res.status(404).send('País no encontrado');
         }
-        res.render('editPais', { title: 'Modificar País', pais }); 
+        res.render('editPais', { title: 'Modificar País', pais });
     } catch (error) {
-        res.status(500).send('Error al cargar formulario de edición'); 
+        res.status(500).send('Error al cargar formulario de edición');
     }
 }
+
 
 /**
  * Controlador que maneja la actualización de un país existente.
@@ -73,10 +74,10 @@ export async function mostrarFormularioEditarPais(req, res) {
  */
 export async function actualizarPaisController(req, res) {
     try {
-        const { nombreOficial } = req.params;
+        const { id } = req.params;
         const datosActualizados = req.body;
 
-        const paisActualizado = await actualizarPaisService(nombreOficial, datosActualizados);
+        const paisActualizado = await actualizarPaisServicePorId(id, datosActualizados);
 
         if (!paisActualizado) {
             return res.status(404).json({ mensaje: 'País no encontrado' });
@@ -84,9 +85,10 @@ export async function actualizarPaisController(req, res) {
 
         return res.json({ mensaje: 'País actualizado correctamente' });
     } catch (error) {
-        res.status(500).json({ mensaje: 'Error al actualizar el país', error: error.message }); 
+        res.status(500).json({ mensaje: 'Error al actualizar el país', error: error.message });
     }
 }
+
 
 /**
  * Controlador que maneja la eliminación de un país.

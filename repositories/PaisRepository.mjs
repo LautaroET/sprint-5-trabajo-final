@@ -16,7 +16,7 @@ class PaisRepository extends IRepository {
      * @returns {Promise<Array>} Un array de países obtenidos de la base de datos.
      */
     async obtenerTodos() {
-        return await Pais.find({creador:"Tapia Lautaro",capital: { $exists: true }});
+        return await Pais.find({creador:"Tapia Lautaro", independent: { $exists: true }});
         // Comentado para búsqueda específica por creador: return await Pais.find({ creador: 'Tapia Lautaro' });
     }
 
@@ -26,8 +26,8 @@ class PaisRepository extends IRepository {
      * @param {String} nombreOficial - El nombre oficial del país que se desea buscar.
      * @returns {Promise<Object|null>} El país encontrado o null si no se encuentra.
      */
-    async obtenerPorNombreOficial(nombreOficial) {
-        return await Pais.findOne({ 'name.official': nombreOficial });
+    async obtenerPorId(id) {
+        return await Pais.findById(id); // Buscar por _id de MongoDB
     }
 
     /**
@@ -48,8 +48,8 @@ class PaisRepository extends IRepository {
      * @param {Object} datosActualizados - Los datos actualizados del país.
      * @returns {Promise<Object|null>} El país actualizado o null si no se encuentra.
      */
-    async actualizar(nombreOficial, datosActualizados) {
-        return await Pais.findOneAndUpdate({ "name.official": nombreOficial }, datosActualizados, { new: true });
+    async actualizarPorId(id, datos) {
+        return await Pais.findByIdAndUpdate(id, datos, { new: true });
     }
 
     /**
